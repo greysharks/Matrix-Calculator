@@ -1,15 +1,33 @@
-alert('Welcome to "Matrix Calculator"!!');
+// alert('Welcome to "Matrix Calculator"!!');
 
-const mathematicalOperation = 
- prompt('Please enter a symbol of mathematical operation wich ' 
- + 'you would like to perform with two matrices:\n• + (for addition)' 
- + '\n• - (for substraction)\n• * (for multiplication)').trim();
+// const mathematicalOperation = 
+//  prompt('Please enter a symbol of mathematical operation wich ' 
+//  + 'you would like to perform with two matrices:\n• + (for addition)' 
+//  + '\n• - (for substraction)\n• * (for multiplication)').trim();
 
-if (mathematicalOperation === '+' || mathematicalOperation === '-' || mathematicalOperation === '*') 
-{
-  // future realisation
-}
-else 
-{
-  alert('Oops.. an error occured!');
-}
+// if (mathematicalOperation === '+' || mathematicalOperation === '-' || mathematicalOperation === '*') 
+// {
+  const strMatrixDimension = 
+   prompt('Please enter the number of rows and the number of columns ' 
+   + 'separated by space (e.g. 2 2)').trim();
+  
+  // Make an array from string where the first value is a number of rows 
+  // and the second value is a number of columns
+  const matrixDimension = strMatrixDimension.split(' ');
+
+  if (matrixDimension.length === 2)
+  {
+    // Convert number of rows and number of columns to "number" type
+    matrixDimension[0] = Number.parseInt(matrixDimension[0]);
+    matrixDimension[1] = Number.parseInt(matrixDimension[1]);
+  }
+  else
+  {
+    alert('Error!');
+  }
+
+// }
+// else 
+// {
+//   alert('Oops.. an error occurred!');
+// }
