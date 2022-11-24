@@ -42,6 +42,28 @@
       }
     }
     console.log(firstMatrix);
+
+    alert('Enter the second matrix.');
+
+    // Create second matrix
+    const secondMatrix = [];
+    for (let i = 0; i < matrixDimension[0]; i++) 
+    {
+      secondMatrix[i] = 
+       prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+      secondMatrix[i] = secondMatrix[i].split(' ');
+    }
+    console.log(secondMatrix);
+
+    // Convert values of second matrix to "number" type
+    for (let i = 0; i < matrixDimension[0]; i++) 
+    {
+      for (let j = 0; j < matrixDimension[1]; j++) 
+      {
+        secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
+      }
+    }
+    console.log(secondMatrix);
   }
   else
   {
