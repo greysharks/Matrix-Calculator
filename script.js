@@ -20,6 +20,18 @@
     // Convert number of rows and number of columns to "number" type
     matrixDimension[0] = Number.parseInt(matrixDimension[0]);
     matrixDimension[1] = Number.parseInt(matrixDimension[1]);
+
+    alert('Enter the first matrix.');
+    
+    // Create first matrix
+    const firstMatrix = [];
+    for (let i = 0; i < matrixDimension[0]; i++) 
+    {
+      firstMatrix[i] = 
+       prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+      firstMatrix[i] = firstMatrix[i].split(' ');
+    }
+    console.log(firstMatrix);
   }
   else
   {
