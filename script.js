@@ -32,6 +32,16 @@
       firstMatrix[i] = firstMatrix[i].split(' ');
     }
     console.log(firstMatrix);
+
+    // Convert values of first matrix to "number" type
+    for (let i = 0; i < matrixDimension[0]; i++) 
+    {
+      for (let j = 0; j < matrixDimension[1]; j++) 
+      {
+        firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
+      }
+    }
+    console.log(firstMatrix);
   }
   else
   {
