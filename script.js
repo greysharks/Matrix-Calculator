@@ -67,7 +67,8 @@ if (mathematicalOperation === '+'
     console.log(secondMatrix);
 
     const resultMatrix = [];
-    switch (mathematicalOperation) {
+    switch (mathematicalOperation) 
+    {
       case '+':
         // Calculate the result of adding two matrices
         for (let i = 0; i < matrixDimension[0]; i++) 
@@ -80,7 +81,15 @@ if (mathematicalOperation === '+'
         }
         break;
       case '-':
-
+        // Calculate the result of subtracting two matrices
+        for (let i = 0; i < matrixDimension[0]; i++) 
+        {
+          resultMatrix[i] = [];
+          for (let j = 0; j < matrixDimension[1]; j++) 
+          {
+            resultMatrix[i][j] = firstMatrix[i][j] - secondMatrix[i][j];
+          }
+        }
         break;
       default:
         break;
