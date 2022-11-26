@@ -5,6 +5,8 @@ const mathematicalOperation =
  + 'you would like to perform with two matrices:\n• + (for addition)' 
  + '\n• - (for subtraction)\n• * (for multiplication)').trim();
 
+document.getElementById('mathematical-operation').innerText = mathematicalOperation;
+
 if (mathematicalOperation === '+' 
  || mathematicalOperation === '-') 
 {
