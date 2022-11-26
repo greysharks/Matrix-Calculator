@@ -114,6 +114,18 @@ else if (mathematicalOperation === '*')
   // Convert number of rows and number of columns to "number" type
   firstMatrixDimension[0] = Number.parseInt(firstMatrixDimension[0]); // rows
   firstMatrixDimension[1] = Number.parseInt(firstMatrixDimension[1]); // columns
+
+  const strSecondMatrixDimension = 
+   prompt('Please enter the number of rows and the number of columns ' 
+   + 'of the second matrix separated by space (e.g. 2 2)').trim();
+  
+  // Convert string containing number of rows and number of columns
+  // of the second matrix to an array
+  const secondMatrixDimension = strSecondMatrixDimension.split(' ');
+
+  // Convert number of rows and number of columns to "number" type
+  secondMatrixDimension[0] = Number.parseInt(secondMatrixDimension[0]); // rows
+  secondMatrixDimension[1] = Number.parseInt(secondMatrixDimension[1]); // columns
 }
 else 
 {
