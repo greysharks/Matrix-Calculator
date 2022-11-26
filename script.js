@@ -105,6 +105,17 @@ if (mathematicalOperation === '+'
         break;
     }
     console.log(resultMatrix);
+
+    // Display the (i+1)-th row of result matrix
+    for (let i = 0; i < matrixDimension[0]; i++) 
+    {
+      let strRow = '';
+      for (let j = 0; j < matrixDimension[1]; j++) 
+      {
+        strRow += resultMatrix[i][j] + ' ';
+      }
+      document.getElementById('result-matrix').innerHTML += `<div>${strRow.trim()}</div>`;
+    }
   }
   else
   {
