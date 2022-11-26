@@ -30,6 +30,10 @@ if (mathematicalOperation === '+'
     {
       firstMatrix[i] = 
        prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+
+      // Display (i+1)-th row of first matrix
+      document.getElementById('first-matrix').innerHTML += `<div>${firstMatrix[i]}</div>`;
+
       firstMatrix[i] = firstMatrix[i].split(' ');
     }
     console.log(firstMatrix);
