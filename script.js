@@ -10,7 +10,7 @@ if (mathematicalOperation === '+'
 {
   const strMatrixDimension = 
    prompt('Please enter the number of rows and the number of columns ' 
-   + 'separated by space (e.g. 2 2)').trim();
+   + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
   
   // Make an array from string where the first value is a number of rows 
   // and the second value is a number of columns
@@ -19,8 +19,8 @@ if (mathematicalOperation === '+'
   if (matrixDimension.length === 2)
   {
     // Convert number of rows and number of columns to "number" type
-    matrixDimension[0] = Number.parseInt(matrixDimension[0]);
-    matrixDimension[1] = Number.parseInt(matrixDimension[1]);
+    matrixDimension[0] = Number.parseInt(matrixDimension[0]); // rows
+    matrixDimension[1] = Number.parseInt(matrixDimension[1]); // columns
 
     alert('Enter the first matrix.');
     
