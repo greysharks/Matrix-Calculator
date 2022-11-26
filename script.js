@@ -58,6 +58,10 @@ if (mathematicalOperation === '+'
     {
       secondMatrix[i] = 
        prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+
+      // Display the (i+1)-th row of second matrix
+      document.getElementById('second-matrix').innerHTML += `<div>${secondMatrix[i]}</div>`;
+
       secondMatrix[i] = secondMatrix[i].split(' ');
     }
     console.log(secondMatrix);
