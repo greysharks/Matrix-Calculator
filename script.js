@@ -101,6 +101,20 @@ if (mathematicalOperation === '+'
     alert('Error!');
   }
 }
+else if (mathematicalOperation === '*') 
+{
+  const strFirstMatrixDimension = 
+   prompt('Please enter the number of rows and the number of columns ' 
+   + 'of the first matrix separated by space (e.g. 2 2)').trim();
+
+  // Convert string containing number of rows and number of columns
+  // of the first matrix to an array
+  const firstMatrixDimension = strFirstMatrixDimension.split(' ');
+
+  // Convert number of rows and number of columns to "number" type
+  firstMatrixDimension[0] = Number.parseInt(firstMatrixDimension[0]); // rows
+  firstMatrixDimension[1] = Number.parseInt(firstMatrixDimension[1]); // columns
+}
 else 
 {
   alert('Oops.. an error occurred!');
