@@ -1,0 +1,11 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+div {
+  margin-left: 4px;
+  margin-right: 4px;
+}

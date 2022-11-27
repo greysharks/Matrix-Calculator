@@ -5,6 +5,8 @@ const mathematicalOperation =
  + 'you would like to perform with two matrices:\n• + (for addition)' 
  + '\n• - (for subtraction)\n• * (for multiplication)').trim();
 
+document.getElementById('mathematical-operation').innerText = mathematicalOperation;
+
 if (mathematicalOperation === '+' 
  || mathematicalOperation === '-') 
 {
@@ -30,6 +32,10 @@ if (mathematicalOperation === '+'
     {
       firstMatrix[i] = 
        prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+
+      // Display (i+1)-th row of first matrix
+      document.getElementById('first-matrix').innerHTML += `<div>${firstMatrix[i]}</div>`;
+
       firstMatrix[i] = firstMatrix[i].split(' ');
     }
     console.log(firstMatrix);
@@ -52,6 +58,10 @@ if (mathematicalOperation === '+'
     {
       secondMatrix[i] = 
        prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+
+      // Display the (i+1)-th row of second matrix
+      document.getElementById('second-matrix').innerHTML += `<div>${secondMatrix[i]}</div>`;
+
       secondMatrix[i] = secondMatrix[i].split(' ');
     }
     console.log(secondMatrix);
@@ -95,6 +105,17 @@ if (mathematicalOperation === '+'
         break;
     }
     console.log(resultMatrix);
+
+    // Display the (i+1)-th row of result matrix
+    for (let i = 0; i < matrixDimension[0]; i++) 
+    {
+      let strRow = '';
+      for (let j = 0; j < matrixDimension[1]; j++) 
+      {
+        strRow += resultMatrix[i][j] + ' ';
+      }
+      document.getElementById('result-matrix').innerHTML += `<div>${strRow.trim()}</div>`;
+    }
   }
   else
   {
