@@ -38,7 +38,6 @@ if (mathematicalOperation === '+'
 
       firstMatrix[i] = firstMatrix[i].split(' ');
     }
-    console.log(firstMatrix);
 
     // Convert values of first matrix to "number" type
     for (let i = 0; i < matrixDimension[0]; i++) 
@@ -48,7 +47,6 @@ if (mathematicalOperation === '+'
         firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
       }
     }
-    console.log(firstMatrix);
 
     alert('Enter the second matrix.');
 
@@ -64,7 +62,6 @@ if (mathematicalOperation === '+'
 
       secondMatrix[i] = secondMatrix[i].split(' ');
     }
-    console.log(secondMatrix);
 
     // Convert values of second matrix to "number" type
     for (let i = 0; i < matrixDimension[0]; i++) 
@@ -74,7 +71,6 @@ if (mathematicalOperation === '+'
         secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
       }
     }
-    console.log(secondMatrix);
 
     const resultMatrix = [];
     switch (mathematicalOperation) 
@@ -104,7 +100,6 @@ if (mathematicalOperation === '+'
       default:
         break;
     }
-    console.log(resultMatrix);
 
     // Display the (i+1)-th row of result matrix
     for (let i = 0; i < matrixDimension[0]; i++) 
@@ -150,7 +145,6 @@ else if (mathematicalOperation === '*')
     
     firstMatrix[i] = firstMatrix[i].split(' ');
   }
-  console.log(firstMatrix);
 
   // Convert values of first matrix to "number" type
   for (let i = 0; i < firstMatrixDimension[0]; i++) 
@@ -160,7 +154,6 @@ else if (mathematicalOperation === '*')
       firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
     }
   }
-  console.log(firstMatrix);
 
   const strSecondMatrixDimension = 
    prompt('Please enter the number of rows and the number of columns ' 
@@ -188,7 +181,6 @@ else if (mathematicalOperation === '*')
 
     secondMatrix[i] = secondMatrix[i].split(' ');
   }
-  console.log(secondMatrix);
 
   // Convert values of second matrix to "number" type
   for (let i = 0; i < secondMatrixDimension[0]; i++) 
@@ -198,7 +190,6 @@ else if (mathematicalOperation === '*')
       secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
     }
   }
-  console.log(secondMatrix);
 
   // Calculate the result of multiplying two matrices
   const resultMatrix = [];
@@ -214,7 +205,6 @@ else if (mathematicalOperation === '*')
       }
     }
   }
-  console.log(resultMatrix);
   
   // Display the (i+1)-th row of result matrix
   for (let i = 0; i < firstMatrixDimension[0]; i++) 
