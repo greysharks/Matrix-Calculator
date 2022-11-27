@@ -32,10 +32,6 @@ if (mathematicalOperation === '+'
     {
       firstMatrix[i] = 
        prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
-
-      // Display (i+1)-th row of first matrix
-      document.getElementById('first-matrix').innerHTML += `<div>${firstMatrix[i]}</div>`;
-
       firstMatrix[i] = firstMatrix[i].split(' ');
     }
 
@@ -50,10 +46,6 @@ if (mathematicalOperation === '+'
     {
       secondMatrix[i] = 
        prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
-
-      // Display the (i+1)-th row of second matrix
-      document.getElementById('second-matrix').innerHTML += `<div>${secondMatrix[i]}</div>`;
-
       secondMatrix[i] = secondMatrix[i].split(' ');
     }
 
@@ -89,16 +81,12 @@ if (mathematicalOperation === '+'
         break;
     }
 
-    // Display the (i+1)-th row of result matrix
-    for (let i = 0; i < matrixDimension[0]; i++) 
-    {
-      let strRow = '';
-      for (let j = 0; j < matrixDimension[1]; j++) 
-      {
-        strRow += resultMatrix[i][j] + ' ';
-      }
-      document.getElementById('result-matrix').innerHTML += `<div>${strRow.trim()}</div>`;
-    }
+    // Display first matrix
+    DisplayMatrix('first', firstMatrix, matrixDimension);
+    // Display second matrix
+    DisplayMatrix('second', secondMatrix, matrixDimension);
+    // Display result matrix
+    DisplayMatrix('result', resultMatrix, matrixDimension);
   }
   else
   {
@@ -207,5 +195,20 @@ function ConvertMatrixToNumber(matrix, matrixDimension)
     {
       matrix[i][j] = Number.parseFloat(matrix[i][j]);
     }
+  }
+}
+
+function DisplayMatrix(strMatrixPrefix, matrix, matrixDimension) 
+{
+  const strMatrixName = strMatrixPrefix + '-matrix';
+  for (let i = 0; i < matrixDimension[0]; i++) 
+  {
+    let strRow = '';
+    for (let j = 0; j < matrixDimension[1]; j++) 
+    {
+      strRow += matrix[i][j] + ' ';
+    }
+    // Display the (i+1)-th row of matrix
+    document.getElementById(strMatrixName).innerHTML += `<div>${strRow.trim()}</div>`;
   }
 }
