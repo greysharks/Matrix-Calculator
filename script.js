@@ -144,6 +144,10 @@ else if (mathematicalOperation === '*')
   {
     firstMatrix[i] = 
      prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    
+    // Display (i+1)-th row of first matrix
+    document.getElementById('first-matrix').innerHTML += `<div>${firstMatrix[i]}</div>`;
+    
     firstMatrix[i] = firstMatrix[i].split(' ');
   }
   console.log(firstMatrix);
@@ -178,6 +182,10 @@ else if (mathematicalOperation === '*')
   {
     secondMatrix[i] = 
      prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    
+    // Display the (i+1)-th row of second matrix
+    document.getElementById('second-matrix').innerHTML += `<div>${secondMatrix[i]}</div>`;
+
     secondMatrix[i] = secondMatrix[i].split(' ');
   }
   console.log(secondMatrix);
@@ -207,6 +215,17 @@ else if (mathematicalOperation === '*')
     }
   }
   console.log(resultMatrix);
+  
+  // Display the (i+1)-th row of result matrix
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    let strRow = '';
+    for (let j = 0; j < secondMatrixDimension[1]; j++) 
+    {
+      strRow += resultMatrix[i][j] + ' ';
+    }
+    document.getElementById('result-matrix').innerHTML += `<div>${strRow.trim()}</div>`;
+  }
 }
 else 
 {
