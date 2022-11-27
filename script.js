@@ -107,7 +107,7 @@ else if (mathematicalOperation === '*')
    prompt('Please enter the number of rows and the number of columns ' 
    + 'of the first matrix separated by space (e.g. 2 2)').trim();
 
-  // Convert string containing number of rows and number of columns
+  // Convert string containing nsecondumber of rows and number of columns
   // of the first matrix to an array
   const firstMatrixDimension = strFirstMatrixDimension.split(' ');
 
@@ -170,6 +170,22 @@ else if (mathematicalOperation === '*')
     }
   }
   console.log(secondMatrix);
+
+  // Calculate the result of multiplying two matrices
+  const resultMatrix = [];
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    resultMatrix[i] = [];
+    for (let j = 0; j < secondMatrixDimension[1]; j++) 
+    {
+      resultMatrix[i][j] = 0;
+      for (let k = 0; k < firstMatrixDimension[1]; k++) 
+      {
+        resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+      }
+    }
+  }
+  console.log(resultMatrix);
 }
 else 
 {
