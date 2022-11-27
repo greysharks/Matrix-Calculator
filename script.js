@@ -148,6 +148,28 @@ else if (mathematicalOperation === '*')
   // Convert number of rows and number of columns to "number" type
   secondMatrixDimension[0] = Number.parseInt(secondMatrixDimension[0]); // rows
   secondMatrixDimension[1] = Number.parseInt(secondMatrixDimension[1]); // columns
+
+  alert('Enter the second matrix.');
+
+  // Create second matrix
+  const secondMatrix = [];
+  for (let i = 0; i < secondMatrixDimension[0]; i++) 
+  {
+    secondMatrix[i] = 
+     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    secondMatrix[i] = secondMatrix[i].split(' ');
+  }
+  console.log(secondMatrix);
+
+  // Convert values of second matrix to "number" type
+  for (let i = 0; i < secondMatrixDimension[0]; i++) 
+  {
+    for (let j = 0; j < secondMatrixDimension[1]; j++) 
+    {
+      secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
+    }
+  }
+  console.log(secondMatrix);
 }
 else 
 {
