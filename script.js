@@ -115,6 +115,28 @@ else if (mathematicalOperation === '*')
   firstMatrixDimension[0] = Number.parseInt(firstMatrixDimension[0]); // rows
   firstMatrixDimension[1] = Number.parseInt(firstMatrixDimension[1]); // columns
 
+  alert('Enter the first matrix.');
+    
+  // Create first matrix
+  const firstMatrix = [];
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    firstMatrix[i] = 
+     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    firstMatrix[i] = firstMatrix[i].split(' ');
+  }
+  console.log(firstMatrix);
+
+  // Convert values of first matrix to "number" type
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    for (let j = 0; j < firstMatrixDimension[1]; j++) 
+    {
+      firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
+    }
+  }
+  console.log(firstMatrix);
+
   const strSecondMatrixDimension = 
    prompt('Please enter the number of rows and the number of columns ' 
    + 'of the second matrix separated by space (e.g. 2 2)').trim();
