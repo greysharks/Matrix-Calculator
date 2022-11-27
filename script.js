@@ -40,13 +40,7 @@ if (mathematicalOperation === '+'
     }
 
     // Convert values of first matrix to "number" type
-    for (let i = 0; i < matrixDimension[0]; i++) 
-    {
-      for (let j = 0; j < matrixDimension[1]; j++) 
-      {
-        firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
-      }
-    }
+    ConvertMatrixToNumber(firstMatrix, matrixDimension);
 
     alert('Enter the second matrix.');
 
@@ -64,13 +58,7 @@ if (mathematicalOperation === '+'
     }
 
     // Convert values of second matrix to "number" type
-    for (let i = 0; i < matrixDimension[0]; i++) 
-    {
-      for (let j = 0; j < matrixDimension[1]; j++) 
-      {
-        secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
-      }
-    }
+    ConvertMatrixToNumber(secondMatrix, matrixDimension);
 
     const resultMatrix = [];
     switch (mathematicalOperation) 
@@ -147,13 +135,7 @@ else if (mathematicalOperation === '*')
   }
 
   // Convert values of first matrix to "number" type
-  for (let i = 0; i < firstMatrixDimension[0]; i++) 
-  {
-    for (let j = 0; j < firstMatrixDimension[1]; j++) 
-    {
-      firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
-    }
-  }
+  ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
 
   const strSecondMatrixDimension = 
    prompt('Please enter the number of rows and the number of columns ' 
@@ -183,13 +165,7 @@ else if (mathematicalOperation === '*')
   }
 
   // Convert values of second matrix to "number" type
-  for (let i = 0; i < secondMatrixDimension[0]; i++) 
-  {
-    for (let j = 0; j < secondMatrixDimension[1]; j++) 
-    {
-      secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
-    }
-  }
+  ConvertMatrixToNumber(secondMatrix, secondMatrixDimension);
 
   // Calculate the result of multiplying two matrices
   const resultMatrix = [];
@@ -220,4 +196,16 @@ else if (mathematicalOperation === '*')
 else 
 {
   alert('Oops.. an error occurred!');
+}
+
+function ConvertMatrixToNumber(matrix, matrixDimension) 
+{
+  // Convert values of matrix to "number" type
+  for (let i = 0; i < matrixDimension[0]; i++) 
+  {
+    for (let j = 0; j < matrixDimension[1]; j++) 
+    {
+      matrix[i][j] = Number.parseFloat(matrix[i][j]);
+    }
+  }
 }
