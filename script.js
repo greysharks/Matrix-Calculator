@@ -101,6 +101,92 @@ if (mathematicalOperation === '+'
     alert('Error!');
   }
 }
+else if (mathematicalOperation === '*') 
+{
+  const strFirstMatrixDimension = 
+   prompt('Please enter the number of rows and the number of columns ' 
+   + 'of the first matrix separated by space (e.g. 2 2)').trim();
+
+  // Convert string containing nsecondumber of rows and number of columns
+  // of the first matrix to an array
+  const firstMatrixDimension = strFirstMatrixDimension.split(' ');
+
+  // Convert number of rows and number of columns to "number" type
+  firstMatrixDimension[0] = Number.parseInt(firstMatrixDimension[0]); // rows
+  firstMatrixDimension[1] = Number.parseInt(firstMatrixDimension[1]); // columns
+
+  alert('Enter the first matrix.');
+    
+  // Create first matrix
+  const firstMatrix = [];
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    firstMatrix[i] = 
+     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    firstMatrix[i] = firstMatrix[i].split(' ');
+  }
+  console.log(firstMatrix);
+
+  // Convert values of first matrix to "number" type
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    for (let j = 0; j < firstMatrixDimension[1]; j++) 
+    {
+      firstMatrix[i][j] = Number.parseFloat(firstMatrix[i][j]);
+    }
+  }
+  console.log(firstMatrix);
+
+  const strSecondMatrixDimension = 
+   prompt('Please enter the number of rows and the number of columns ' 
+   + 'of the second matrix separated by space (e.g. 2 2)').trim();
+  
+  // Convert string containing number of rows and number of columns
+  // of the second matrix to an array
+  const secondMatrixDimension = strSecondMatrixDimension.split(' ');
+
+  // Convert number of rows and number of columns to "number" type
+  secondMatrixDimension[0] = Number.parseInt(secondMatrixDimension[0]); // rows
+  secondMatrixDimension[1] = Number.parseInt(secondMatrixDimension[1]); // columns
+
+  alert('Enter the second matrix.');
+
+  // Create second matrix
+  const secondMatrix = [];
+  for (let i = 0; i < secondMatrixDimension[0]; i++) 
+  {
+    secondMatrix[i] = 
+     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    secondMatrix[i] = secondMatrix[i].split(' ');
+  }
+  console.log(secondMatrix);
+
+  // Convert values of second matrix to "number" type
+  for (let i = 0; i < secondMatrixDimension[0]; i++) 
+  {
+    for (let j = 0; j < secondMatrixDimension[1]; j++) 
+    {
+      secondMatrix[i][j] = Number.parseFloat(secondMatrix[i][j]);
+    }
+  }
+  console.log(secondMatrix);
+
+  // Calculate the result of multiplying two matrices
+  const resultMatrix = [];
+  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  {
+    resultMatrix[i] = [];
+    for (let j = 0; j < secondMatrixDimension[1]; j++) 
+    {
+      resultMatrix[i][j] = 0;
+      for (let k = 0; k < firstMatrixDimension[1]; k++) 
+      {
+        resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+      }
+    }
+  }
+  console.log(resultMatrix);
+}
 else 
 {
   alert('Oops.. an error occurred!');
