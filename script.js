@@ -13,17 +13,11 @@ if (mathematicalOperation === '+'
   const strMatrixDimension = 
    prompt('Please enter the number of rows and the number of columns ' 
    + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
-  
-  // Make an array from string where the first value is a number of rows 
-  // and the second value is a number of columns
-  const matrixDimension = strMatrixDimension.split(' ');
+
+  const matrixDimension = CreateMatrixDimension(strMatrixDimension);
 
   if (matrixDimension.length === 2)
   {
-    // Convert number of rows and number of columns to "number" type
-    matrixDimension[0] = Number.parseInt(matrixDimension[0]); // rows
-    matrixDimension[1] = Number.parseInt(matrixDimension[1]); // columns
-
     alert('Enter the first matrix.');
     
     // Create first matrix
@@ -89,13 +83,7 @@ else if (mathematicalOperation === '*')
    prompt('Please enter the number of rows and the number of columns ' 
    + 'of the first matrix separated by space (e.g. 2 2)').trim();
 
-  // Convert string containing nsecondumber of rows and number of columns
-  // of the first matrix to an array
-  const firstMatrixDimension = strFirstMatrixDimension.split(' ');
-
-  // Convert number of rows and number of columns to "number" type
-  firstMatrixDimension[0] = Number.parseInt(firstMatrixDimension[0]); // rows
-  firstMatrixDimension[1] = Number.parseInt(firstMatrixDimension[1]); // columns
+  const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
 
   alert('Enter the first matrix.');
     
@@ -110,13 +98,7 @@ else if (mathematicalOperation === '*')
    prompt('Please enter the number of rows and the number of columns ' 
    + 'of the second matrix separated by space (e.g. 2 2)').trim();
   
-  // Convert string containing number of rows and number of columns
-  // of the second matrix to an array
-  const secondMatrixDimension = strSecondMatrixDimension.split(' ');
-
-  // Convert number of rows and number of columns to "number" type
-  secondMatrixDimension[0] = Number.parseInt(secondMatrixDimension[0]); // rows
-  secondMatrixDimension[1] = Number.parseInt(secondMatrixDimension[1]); // columns
+  const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
 
   alert('Enter the second matrix.');
 
@@ -195,4 +177,17 @@ function CreateMatrix(matrix, numberOfRows)
      prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
     matrix[i] = matrix[i].split(' ');
   }
+}
+
+function CreateMatrixDimension(strMatrixDimension) 
+{
+  // Convert string containing number of rows and
+  // number of columns of the matrix to an array
+  const matrixDimension = strMatrixDimension.split(' ');
+
+  // Convert number of rows and number of columns to "number" type
+  matrixDimension[0] = Number.parseInt(matrixDimension[0]); // rows
+  matrixDimension[1] = Number.parseInt(matrixDimension[1]); // columns
+
+  return matrixDimension;
 }
