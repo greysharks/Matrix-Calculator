@@ -28,12 +28,7 @@ if (mathematicalOperation === '+'
     
     // Create first matrix
     const firstMatrix = [];
-    for (let i = 0; i < matrixDimension[0]; i++) 
-    {
-      firstMatrix[i] = 
-       prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
-      firstMatrix[i] = firstMatrix[i].split(' ');
-    }
+    CreateMatrix(firstMatrix, matrixDimension[0]);
 
     // Convert values of first matrix to "number" type
     ConvertMatrixToNumber(firstMatrix, matrixDimension);
@@ -42,12 +37,7 @@ if (mathematicalOperation === '+'
 
     // Create second matrix
     const secondMatrix = [];
-    for (let i = 0; i < matrixDimension[0]; i++) 
-    {
-      secondMatrix[i] = 
-       prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
-      secondMatrix[i] = secondMatrix[i].split(' ');
-    }
+    CreateMatrix(secondMatrix, matrixDimension[0]);
 
     // Convert values of second matrix to "number" type
     ConvertMatrixToNumber(secondMatrix, matrixDimension);
@@ -111,12 +101,7 @@ else if (mathematicalOperation === '*')
     
   // Create first matrix
   const firstMatrix = [];
-  for (let i = 0; i < firstMatrixDimension[0]; i++) 
-  {
-    firstMatrix[i] = 
-     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();    
-    firstMatrix[i] = firstMatrix[i].split(' ');
-  }
+  CreateMatrix(firstMatrix, firstMatrixDimension[0]);
 
   // Convert values of first matrix to "number" type
   ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
@@ -137,12 +122,7 @@ else if (mathematicalOperation === '*')
 
   // Create second matrix
   const secondMatrix = [];
-  for (let i = 0; i < secondMatrixDimension[0]; i++) 
-  {
-    secondMatrix[i] = 
-     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
-    secondMatrix[i] = secondMatrix[i].split(' ');
-  }
+  CreateMatrix(secondMatrix, secondMatrixDimension[0]);
 
   // Convert values of second matrix to "number" type
   ConvertMatrixToNumber(secondMatrix, secondMatrixDimension);
@@ -204,5 +184,15 @@ function DisplayMatrix(strMatrixPrefix, matrix, matrixDimension)
     }
     // Display the (i+1)-th row of matrix
     document.getElementById(strMatrixName).innerHTML += `<div>${strRow.trim()}</div>`;
+  }
+}
+
+function CreateMatrix(matrix, numberOfRows) 
+{
+  for (let i = 0; i < numberOfRows; i++) 
+  {
+    matrix[i] = 
+     prompt(`Please enter the ${i+1}-th row of the matrix.`).trim();
+    matrix[i] = matrix[i].split(' ');
   }
 }
