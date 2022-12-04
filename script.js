@@ -10,19 +10,22 @@ document.getElementById('mathematical-operation').innerText = mathematicalOperat
 if (mathematicalOperation === '+' 
  || mathematicalOperation === '-') 
 {
-  const strMatrixDimension = 
-   prompt('Please enter the number of rows and the number of columns ' 
-   + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
-
-  const matrixDimension = CreateMatrixDimension(strMatrixDimension);
-
-  if (matrixDimension.length === 2)
+  try 
   {
+    const strMatrixDimension = 
+     prompt('Please enter the number of rows and the number of columns ' 
+     + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
+
+    const matrixDimension = CreateMatrixDimension(strMatrixDimension);
+
     alert('Enter the first matrix.');
     
     // Create first matrix
     const firstMatrix = [];
     CreateMatrix(firstMatrix, matrixDimension[0]);
+
+    // Check if first matrix was entered without mistakes
+    CheckMatrix(firstMatrix, matrixDimension);
 
     // Convert values of first matrix to "number" type
     ConvertMatrixToNumber(firstMatrix, matrixDimension);
@@ -32,6 +35,9 @@ if (mathematicalOperation === '+'
     // Create second matrix
     const secondMatrix = [];
     CreateMatrix(secondMatrix, matrixDimension[0]);
+
+    // Check if second matrix was entered without mistakes
+    CheckMatrix(secondMatrix, matrixDimension);
 
     // Convert values of second matrix to "number" type
     ConvertMatrixToNumber(secondMatrix, matrixDimension);
@@ -72,9 +78,9 @@ if (mathematicalOperation === '+'
     // Display result matrix
     DisplayMatrix('result', resultMatrix, matrixDimension);
   }
-  else
+  catch (err) 
   {
-    alert('Error!');
+    alert(err);
   }
 }
 else if (mathematicalOperation === '*') 
@@ -190,4 +196,16 @@ function CreateMatrixDimension(strMatrixDimension)
   matrixDimension[1] = Number.parseInt(matrixDimension[1]); // columns
 
   return matrixDimension;
+}
+
+function CheckMatrix(matrix, matrixDimension) 
+{
+  for (let i = 0; i < matrixDimension[0]; i++) 
+  {
+    if (matrix[i].length !== matrixDimension[1]) 
+    {
+      throw 'Error! Sorry, your input doesn\'t match expected number' 
+       + ' of columns.';
+    }
+  }
 }
