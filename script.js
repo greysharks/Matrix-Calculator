@@ -157,15 +157,15 @@ function ConvertMatrixToNumber(matrix, matrixDimension)
 function DisplayMatrix(strMatrixPrefix, matrix, matrixDimension) 
 {
   const strMatrixName = strMatrixPrefix + '-matrix';
-  for (let i = 0; i < matrixDimension[0]; i++) 
+  for (let i = 0; i < matrixDimension[1]; i++) 
   {
-    let strRow = '';
-    for (let j = 0; j < matrixDimension[1]; j++) 
+    let strColumn = '';
+    for (let j = 0; j < matrixDimension[0]; j++) 
     {
-      strRow += matrix[i][j] + ' ';
+      strColumn += `<div>${matrix[j][i]}</div>`;
     }
-    // Display the (i+1)-th row of matrix
-    document.getElementById(strMatrixName).innerHTML += `<div>${strRow.trim()}</div>`;
+    // Display the (i+1)-th column of matrix
+    document.getElementById(strMatrixName).innerHTML += `<div class="column">${strColumn.trim()}</div>`;
   }
 }
 
