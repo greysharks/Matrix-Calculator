@@ -85,63 +85,76 @@ if (mathematicalOperation === '+'
 }
 else if (mathematicalOperation === '*') 
 {
-  const strFirstMatrixDimension = 
-   prompt('Please enter the number of rows and the number of columns ' 
-   + 'of the first matrix separated by space (e.g. 2 2)').trim();
-
-  const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
-
-  alert('Enter the first matrix.');
-    
-  // Create first matrix
-  const firstMatrix = [];
-  CreateMatrix(firstMatrix, firstMatrixDimension[0]);
-
-  // Convert values of first matrix to "number" type
-  ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
-
-  const strSecondMatrixDimension = 
-   prompt('Please enter the number of rows and the number of columns ' 
-   + 'of the second matrix separated by space (e.g. 2 2)').trim();
-  
-  const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
-
-  alert('Enter the second matrix.');
-
-  // Create second matrix
-  const secondMatrix = [];
-  CreateMatrix(secondMatrix, secondMatrixDimension[0]);
-
-  // Convert values of second matrix to "number" type
-  ConvertMatrixToNumber(secondMatrix, secondMatrixDimension);
-
-  // Calculate the result of multiplying two matrices
-  const resultMatrix = [];
-  for (let i = 0; i < firstMatrixDimension[0]; i++) 
+  try 
   {
-    resultMatrix[i] = [];
-    for (let j = 0; j < secondMatrixDimension[1]; j++) 
+    const strFirstMatrixDimension = 
+     prompt('Please enter the number of rows and the number of columns ' 
+     + 'of the first matrix separated by space (e.g. 2 2)').trim();
+ 
+    const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
+ 
+    alert('Enter the first matrix.');
+     
+    // Create first matrix
+    const firstMatrix = [];
+    CreateMatrix(firstMatrix, firstMatrixDimension[0]);
+
+    // Check if first matrix was entered without mistakes
+    CheckMatrix(firstMatrix, firstMatrixDimension);
+ 
+    // Convert values of first matrix to "number" type
+    ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
+ 
+    const strSecondMatrixDimension = 
+     prompt('Please enter the number of rows and the number of columns ' 
+     + 'of the second matrix separated by space (e.g. 2 2)').trim();
+   
+    const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
+ 
+    alert('Enter the second matrix.');
+ 
+    // Create second matrix
+    const secondMatrix = [];
+    CreateMatrix(secondMatrix, secondMatrixDimension[0]);
+
+    // Check if second matrix was entered without mistakes
+    CheckMatrix(secondMatrix, secondMatrixDimension);
+ 
+    // Convert values of second matrix to "number" type
+    ConvertMatrixToNumber(secondMatrix, secondMatrixDimension);
+ 
+    // Calculate the result of multiplying two matrices
+    const resultMatrix = [];
+    for (let i = 0; i < firstMatrixDimension[0]; i++) 
     {
-      resultMatrix[i][j] = 0;
-      for (let k = 0; k < firstMatrixDimension[1]; k++) 
+      resultMatrix[i] = [];
+      for (let j = 0; j < secondMatrixDimension[1]; j++) 
       {
-        resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+        resultMatrix[i][j] = 0;
+        for (let k = 0; k < firstMatrixDimension[1]; k++) 
+        {
+          resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+        }
       }
     }
+ 
+    // Create an array of result matrix number of rows and 
+    // number of columns in order to display result matrix
+    const resultMatrixDimension = [];
+    resultMatrixDimension.push(firstMatrixDimension[0]);
+    resultMatrixDimension.push(secondMatrixDimension[1]);
+   
+    // Display first matrix
+    DisplayMatrix('first', firstMatrix, firstMatrixDimension);
+    // Display second matrix
+    DisplayMatrix('second', secondMatrix, secondMatrixDimension);
+    // Display result matrix
+    DisplayMatrix('result', resultMatrix, resultMatrixDimension);
   }
-
-  // Create an array of result matrix number of rows and 
-  // number of columns in order to display result matrix
-  const resultMatrixDimension = [];
-  resultMatrixDimension.push(firstMatrixDimension[0]);
-  resultMatrixDimension.push(secondMatrixDimension[1]);
-  
-  // Display first matrix
-  DisplayMatrix('first', firstMatrix, firstMatrixDimension);
-  // Display second matrix
-  DisplayMatrix('second', secondMatrix, secondMatrixDimension);
-  // Display result matrix
-  DisplayMatrix('result', resultMatrix, resultMatrixDimension);
+  catch (err) 
+  {
+    alert(err);
+  }
 }
 else 
 {
