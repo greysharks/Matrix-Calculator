@@ -146,7 +146,7 @@ try
   }
   else 
   {
-    alert('Oops.. an error occurred!');
+    alert('Oops.. that operation doesn\'t exist!');
   }
 }
 catch (err) 
