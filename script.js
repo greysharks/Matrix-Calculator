@@ -7,10 +7,10 @@ const mathematicalOperation =
 
 document.getElementById('mathematical-operation').innerText = mathematicalOperation;
 
-if (mathematicalOperation === '+' 
- || mathematicalOperation === '-') 
+try 
 {
-  try 
+  if (mathematicalOperation === '+' 
+   || mathematicalOperation === '-') 
   {
     const strMatrixDimension = 
      prompt('Please enter the number of rows and the number of columns ' 
@@ -78,14 +78,7 @@ if (mathematicalOperation === '+'
     // Display result matrix
     DisplayMatrix('result', resultMatrix, matrixDimension);
   }
-  catch (err) 
-  {
-    alert(err);
-  }
-}
-else if (mathematicalOperation === '*') 
-{
-  try 
+  else if (mathematicalOperation === '*') 
   {
     const strFirstMatrixDimension = 
      prompt('Please enter the number of rows and the number of columns ' 
@@ -149,16 +142,16 @@ else if (mathematicalOperation === '*')
     // Display second matrix
     DisplayMatrix('second', secondMatrix, secondMatrixDimension);
     // Display result matrix
-    DisplayMatrix('result', resultMatrix, resultMatrixDimension);
+    DisplayMatrix('result', resultMatrix, resultMatrixDimension); 
   }
-  catch (err) 
+  else 
   {
-    alert(err);
+    alert('Oops.. an error occurred!');
   }
 }
-else 
+catch (err) 
 {
-  alert('Oops.. an error occurred!');
+  alert(err);
 }
 
 function ConvertMatrixToNumber(matrix, matrixDimension) 
