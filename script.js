@@ -208,11 +208,13 @@ function CreateMatrixDimension(strMatrixDimension)
   matrixDimension[0] = Number.parseInt(matrixDimension[0]); // rows
   matrixDimension[1] = Number.parseInt(matrixDimension[1]); // columns
 
+  // Check if user has entered number values
   if (Number.isNaN(matrixDimension[0]) || Number.isNaN(matrixDimension[1])) 
   {
     throw 'Values should be numbers!';
   }
 
+  // Check if values are not too small
   if (matrixDimension[0] < 1 || matrixDimension[1] < 1) 
   {
     throw 'Values should not be less than 1!';
