@@ -197,9 +197,26 @@ function CreateMatrixDimension(strMatrixDimension)
   // number of columns of the matrix to an array
   const matrixDimension = strMatrixDimension.split(' ');
 
+  // Check if matrix dimension has enough values
+  if (matrixDimension.length !== 2) 
+  {
+    throw 'You should have entered two values! '
+     + '(first number of rows, then number of columns)';
+  }
+
   // Convert number of rows and number of columns to "number" type
   matrixDimension[0] = Number.parseInt(matrixDimension[0]); // rows
   matrixDimension[1] = Number.parseInt(matrixDimension[1]); // columns
+
+  if (Number.isNaN(matrixDimension[0]) || Number.isNaN(matrixDimension[1])) 
+  {
+    throw 'Values should be numbers!';
+  }
+
+  if (matrixDimension[0] < 1 || matrixDimension[1] < 1) 
+  {
+    throw 'Values should not be less than 1!';
+  }
 
   return matrixDimension;
 }
