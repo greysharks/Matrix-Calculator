@@ -103,6 +103,13 @@ try
      + 'of the second matrix separated by space (e.g. 2 2)').trim();
    
     const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
+
+    // Check if it is possible to multiply two matrices
+    if (firstMatrixDimension[1] !== secondMatrixDimension[0]) 
+    {
+      throw 'The number of columns of the first matrix doesn\'t'
+      + ' match the number of rows of the second matrix!';
+    }
  
     alert('Enter the second matrix.');
  
