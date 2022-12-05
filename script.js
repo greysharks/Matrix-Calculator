@@ -151,7 +151,7 @@ try
 }
 catch (err) 
 {
-  alert(err);
+  alert('Error! ' + err);
 }
 
 function ConvertMatrixToNumber(matrix, matrixDimension) 
@@ -227,7 +227,7 @@ function CheckMatrix(matrix, matrixDimension)
   {
     if (matrix[i].length !== matrixDimension[1]) 
     {
-      throw 'Error! Sorry, your input doesn\'t match expected number' 
+      throw 'Sorry, your input doesn\'t match expected number' 
        + ' of columns.';
     }
   }
