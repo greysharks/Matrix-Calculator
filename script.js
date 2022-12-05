@@ -227,10 +227,20 @@ function CheckMatrix(matrix, matrixDimension)
 {
   for (let i = 0; i < matrixDimension[0]; i++) 
   {
+    // Check if each matrix row has enough columns
     if (matrix[i].length !== matrixDimension[1]) 
     {
       throw 'Sorry, your input doesn\'t match expected number' 
        + ' of columns.';
+    }
+
+    // Check if matrix values are numbers
+    for (let j = 0; j < matrixDimension[1]; j++) 
+    {
+      if (Number.isNaN(matrix[i][j])) 
+      {
+        throw 'Values for your matrix should be numbers!';
+      }
     }
   }
 }
