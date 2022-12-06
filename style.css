@@ -7,7 +7,7 @@ body {
   padding-top: 150px;
 }
 
-body > div, .column {
+body div {
   margin: 0px 4px;
 }
 
@@ -19,4 +19,9 @@ body > div, .column {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.column > input {
+  width: 120px;
+  margin: 4px 0px;
 }
