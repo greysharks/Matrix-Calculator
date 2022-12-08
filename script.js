@@ -4,6 +4,10 @@ document.getElementById('first-matrix-dimension').innerHTML += '<input id="first
 document.getElementById('first-matrix-dimension').innerHTML += '<div>&times;</div>';
 document.getElementById('first-matrix-dimension').innerHTML += '<input id="first-matrix-number-of-columns" type="text">';
 
+document.getElementById('second-matrix-dimension').innerHTML += '<input id="second-matrix-number-of-rows" type="text">';
+document.getElementById('second-matrix-dimension').innerHTML += '<div>&times;</div>';
+document.getElementById('second-matrix-dimension').innerHTML += '<input id="second-matrix-number-of-columns" type="text">';
+
 const mathematicalOperation = 
  prompt('Please enter a symbol of mathematical operation which ' 
  + 'you would like to perform with two matrices:\n• + (for addition)' 
