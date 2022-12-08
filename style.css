@@ -11,6 +11,21 @@ body div {
   margin: 0px 4px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.matrix-dimension {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.matrix-dimension > input {
+  width: 15px;
+}
+
 .matrix {
   display: flex;
 }
@@ -24,4 +39,9 @@ body div {
 .column > input {
   width: 120px;
   margin: 4px 0px;
+}
+
+/* to fix broken alignment due to matrix dimension textboxes */
+.alignment {
+  margin-top: 41px;
 }
