@@ -1,12 +1,7 @@
 alert('Welcome to "Matrix Calculator"!!');
 
-document.getElementById('first-matrix-dimension').innerHTML += '<input id="first-matrix-number-of-rows" type="text">';
-document.getElementById('first-matrix-dimension').innerHTML += '<div>&times;</div>';
-document.getElementById('first-matrix-dimension').innerHTML += '<input id="first-matrix-number-of-columns" type="text">';
-
-document.getElementById('second-matrix-dimension').innerHTML += '<input id="second-matrix-number-of-rows" type="text">';
-document.getElementById('second-matrix-dimension').innerHTML += '<div>&times;</div>';
-document.getElementById('second-matrix-dimension').innerHTML += '<input id="second-matrix-number-of-columns" type="text">';
+DisplayMatrixDimensionTextboxes('first');
+DisplayMatrixDimensionTextboxes('second');
 
 const mathematicalOperation = 
  prompt('Please enter a symbol of mathematical operation which ' 
@@ -261,7 +256,7 @@ function CheckMatrix(matrix, matrixDimension)
     {
       throw 'Sorry, your input doesn\'t match expected number' 
        + ' of columns.';
-    }
+    }MatrixDimension
 
     // Check if matrix values are numbers
     for (let j = 0; j < matrixDimension[1]; j++) 
@@ -301,4 +296,15 @@ function DisplayTextboxes(strMatrixPrefix, matrixDimension)
     // Display the (i+1)-th column of textboxes
     document.getElementById(strMatrixName).innerHTML += `<div class="column">${strColumn}</div>`;
   }
+}
+
+function DisplayMatrixDimensionTextboxes(strMatrixPrefix) 
+{
+  const strElementName = strMatrixPrefix + '-matrix-dimension';
+  const element = document.getElementById(strElementName);
+  
+  element.innerHTML = '';
+  element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-rows" type="text">`;
+  element.innerHTML += '<div>&times;</div>';
+  element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-columns" type="text">`;
 }
