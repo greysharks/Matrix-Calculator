@@ -256,7 +256,7 @@ function CheckMatrix(matrix, matrixDimension)
     {
       throw 'Sorry, your input doesn\'t match expected number' 
        + ' of columns.';
-    }MatrixDimension
+    }
 
     // Check if matrix values are numbers
     for (let j = 0; j < matrixDimension[1]; j++) 
