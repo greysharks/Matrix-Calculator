@@ -22,7 +22,7 @@ try
     const matrixDimension = CreateMatrixDimension(strMatrixDimension);
 
     // Display textboxes for the first matrix
-    DisplayTextboxes('first', matrixDimension);
+    DisplayMatrixTextboxes('first', matrixDimension);
 
     // alert('Enter the first matrix.');
     
@@ -37,7 +37,7 @@ try
     // ConvertMatrixToNumber(firstMatrix, matrixDimension);
 
     // Display textboxes for the second matrix
-    DisplayTextboxes('second', matrixDimension);
+    DisplayMatrixTextboxes('second', matrixDimension);
 
     // alert('Enter the second matrix.');
 
@@ -97,7 +97,7 @@ try
     const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
 
     // Display textboxes for the first matrix
-    DisplayTextboxes('first', firstMatrixDimension);
+    DisplayMatrixTextboxes('first', firstMatrixDimension);
  
     // alert('Enter the first matrix.');
      
@@ -125,7 +125,7 @@ try
     }
 
     // Display textboxes for the second matrix
-    DisplayTextboxes('second', secondMatrixDimension);
+    DisplayMatrixTextboxes('second', secondMatrixDimension);
  
     // alert('Enter the second matrix.');
  
@@ -269,7 +269,7 @@ function CheckMatrix(matrix, matrixDimension)
   }
 }
 
-function DisplayTextboxes(strMatrixPrefix, matrixDimension) 
+function DisplayMatrixTextboxes(strMatrixPrefix, matrixDimension) 
 {
   const strMatrixName = strMatrixPrefix + '-matrix';
 
@@ -302,7 +302,7 @@ function DisplayMatrixDimensionTextboxes(strMatrixPrefix)
 {
   const strElementName = strMatrixPrefix + '-matrix-dimension';
   const element = document.getElementById(strElementName);
-  
+
   element.innerHTML = '';
   element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-rows" type="text">`;
   element.innerHTML += '<div>&times;</div>';
