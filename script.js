@@ -195,35 +195,6 @@ function ConvertMatrixToNumber(matrix, matrixDimension)
   }
 }
 
-function DisplayTextboxes(strMatrixPrefix, matrixDimension) 
-{
-  const strMatrixName = strMatrixPrefix + '-matrix';
-
-  let letter;
-  switch (strMatrixPrefix) 
-  {
-    case 'first':
-      letter = 'a';
-      break;
-    case 'second':
-      letter = 'b';
-      break; 
-    default:
-      throw 'Unknown matrix prefix!';
-  }
-
-  for (let i = 0; i < matrixDimension[1]; i++) 
-  {
-    let strColumn = '';
-    for (let j = 0; j < matrixDimension[0]; j++) 
-    {
-      strColumn += `<input id="${letter}${j+1}${i+1}" type="text">`;
-    }
-    // Display the (i+1)-th column of textboxes
-    document.getElementById(strMatrixName).innerHTML += `<div class="column">${strColumn}</div>`;
-  }
-}
-
 function DisplayMatrix(strMatrixPrefix, matrix, matrixDimension) 
 {
   const strMatrixName = strMatrixPrefix + '-matrix';
@@ -300,5 +271,34 @@ function CheckMatrix(matrix, matrixDimension)
         throw 'Values for your matrix should be numbers!';
       }
     }
+  }
+}
+
+function DisplayTextboxes(strMatrixPrefix, matrixDimension) 
+{
+  const strMatrixName = strMatrixPrefix + '-matrix';
+
+  let letter;
+  switch (strMatrixPrefix) 
+  {
+    case 'first':
+      letter = 'a';
+      break;
+    case 'second':
+      letter = 'b';
+      break; 
+    default:
+      throw 'Unknown matrix prefix!';
+  }
+
+  for (let i = 0; i < matrixDimension[1]; i++) 
+  {
+    let strColumn = '';
+    for (let j = 0; j < matrixDimension[0]; j++) 
+    {
+      strColumn += `<input id="${letter}${j+1}${i+1}" type="text">`;
+    }
+    // Display the (i+1)-th column of textboxes
+    document.getElementById(strMatrixName).innerHTML += `<div class="column">${strColumn}</div>`;
   }
 }
