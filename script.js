@@ -1,5 +1,9 @@
 alert('Welcome to "Matrix Calculator"!!');
 
+document.getElementById('first-matrix-dimension').innerHTML += '<input id="first-matrix-number-of-rows" type="text">';
+document.getElementById('first-matrix-dimension').innerHTML += '<div>&times;</div>';
+document.getElementById('first-matrix-dimension').innerHTML += '<input id="first-matrix-number-of-columns" type="text">';
+
 const mathematicalOperation = 
  prompt('Please enter a symbol of mathematical operation which ' 
  + 'you would like to perform with two matrices:\n• + (for addition)' 
