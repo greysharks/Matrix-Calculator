@@ -10,172 +10,175 @@ const mathematicalOperation =
 
 document.getElementById('mathematical-operation').innerText = mathematicalOperation;
 
-try 
+function Main() 
 {
-  if (mathematicalOperation === '+' 
-   || mathematicalOperation === '-') 
+  try 
   {
-    const strMatrixDimension = 
-     prompt('Please enter the number of rows and the number of columns ' 
-     + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
-
-    const matrixDimension = CreateMatrixDimension(strMatrixDimension);
-
-    // Display textboxes for the first matrix
-    DisplayMatrixTextboxes('first', matrixDimension);
-
-    // alert('Enter the first matrix.');
-    
-    // // Create first matrix
-    // const firstMatrix = [];
-    // CreateMatrix(firstMatrix, matrixDimension[0]);
-
-    // // Check if first matrix was entered without mistakes
-    // CheckMatrix(firstMatrix, matrixDimension);
-
-    // // Convert values of first matrix to "number" type
-    // ConvertMatrixToNumber(firstMatrix, matrixDimension);
-
-    // Display textboxes for the second matrix
-    DisplayMatrixTextboxes('second', matrixDimension);
-
-    // alert('Enter the second matrix.');
-
-    // // Create second matrix
-    // const secondMatrix = [];
-    // CreateMatrix(secondMatrix, matrixDimension[0]);
-
-    // // Check if second matrix was entered without mistakes
-    // CheckMatrix(secondMatrix, matrixDimension);
-
-    // // Convert values of second matrix to "number" type
-    // ConvertMatrixToNumber(secondMatrix, matrixDimension);
-
-    const resultMatrix = [];
-    switch (mathematicalOperation) 
+    if (mathematicalOperation === '+' 
+     || mathematicalOperation === '-') 
     {
-      case '+':
-        // Calculate the result of adding two matrices
-        for (let i = 0; i < matrixDimension[0]; i++) 
-        {
-          resultMatrix[i] = [];
-          for (let j = 0; j < matrixDimension[1]; j++) 
-          {
-            resultMatrix[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
-          }
-        }
-        break;
-      case '-':
-        // Calculate the result of subtracting two matrices
-        for (let i = 0; i < matrixDimension[0]; i++) 
-        {
-          resultMatrix[i] = [];
-          for (let j = 0; j < matrixDimension[1]; j++) 
-          {
-            resultMatrix[i][j] = firstMatrix[i][j] - secondMatrix[i][j];
-          }
-        }
-        break;
-      default:
-        break;
-    }
-
-    // // Display first matrix
-    // DisplayMatrix('first', firstMatrix, matrixDimension);
-    // // Display second matrix
-    // DisplayMatrix('second', secondMatrix, matrixDimension);
-
-    // Display result matrix
-    DisplayMatrix('result', resultMatrix, matrixDimension);
-  }
-  else if (mathematicalOperation === '*') 
-  {
-    const strFirstMatrixDimension = 
-     prompt('Please enter the number of rows and the number of columns ' 
-     + 'of the first matrix separated by space (e.g. 2 2)').trim();
- 
-    const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
-
-    // Display textboxes for the first matrix
-    DisplayMatrixTextboxes('first', firstMatrixDimension);
- 
-    // alert('Enter the first matrix.');
-     
-    // // Create first matrix
-    // const firstMatrix = [];
-    // CreateMatrix(firstMatrix, firstMatrixDimension[0]);
-
-    // // Check if first matrix was entered without mistakes
-    // CheckMatrix(firstMatrix, firstMatrixDimension);
- 
-    // // Convert values of first matrix to "number" type
-    // ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
- 
-    const strSecondMatrixDimension = 
-     prompt('Please enter the number of rows and the number of columns ' 
-     + 'of the second matrix separated by space (e.g. 2 2)').trim();
-   
-    const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
-
-    // Check if it is possible to multiply two matrices
-    if (firstMatrixDimension[1] !== secondMatrixDimension[0]) 
-    {
-      throw 'The number of columns of the first matrix doesn\'t'
-      + ' match the number of rows of the second matrix!';
-    }
-
-    // Display textboxes for the second matrix
-    DisplayMatrixTextboxes('second', secondMatrixDimension);
- 
-    // alert('Enter the second matrix.');
- 
-    // // Create second matrix
-    // const secondMatrix = [];
-    // CreateMatrix(secondMatrix, secondMatrixDimension[0]);
-
-    // // Check if second matrix was entered without mistakes
-    // CheckMatrix(secondMatrix, secondMatrixDimension);
- 
-    // // Convert values of second matrix to "number" type
-    // ConvertMatrixToNumber(secondMatrix, secondMatrixDimension);
- 
-    // Calculate the result of multiplying two matrices
-    const resultMatrix = [];
-    for (let i = 0; i < firstMatrixDimension[0]; i++) 
-    {
-      resultMatrix[i] = [];
-      for (let j = 0; j < secondMatrixDimension[1]; j++) 
+      const strMatrixDimension = 
+       prompt('Please enter the number of rows and the number of columns ' 
+       + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
+  
+      const matrixDimension = CreateMatrixDimension(strMatrixDimension);
+  
+      // Display textboxes for the first matrix
+      DisplayMatrixTextboxes('first', matrixDimension);
+  
+      // alert('Enter the first matrix.');
+      
+      // // Create first matrix
+      // const firstMatrix = [];
+      // CreateMatrix(firstMatrix, matrixDimension[0]);
+  
+      // // Check if first matrix was entered without mistakes
+      // CheckMatrix(firstMatrix, matrixDimension);
+  
+      // // Convert values of first matrix to "number" type
+      // ConvertMatrixToNumber(firstMatrix, matrixDimension);
+  
+      // Display textboxes for the second matrix
+      DisplayMatrixTextboxes('second', matrixDimension);
+  
+      // alert('Enter the second matrix.');
+  
+      // // Create second matrix
+      // const secondMatrix = [];
+      // CreateMatrix(secondMatrix, matrixDimension[0]);
+  
+      // // Check if second matrix was entered without mistakes
+      // CheckMatrix(secondMatrix, matrixDimension);
+  
+      // // Convert values of second matrix to "number" type
+      // ConvertMatrixToNumber(secondMatrix, matrixDimension);
+  
+      const resultMatrix = [];
+      switch (mathematicalOperation) 
       {
-        resultMatrix[i][j] = 0;
-        for (let k = 0; k < firstMatrixDimension[1]; k++) 
+        case '+':
+          // Calculate the result of adding two matrices
+          for (let i = 0; i < matrixDimension[0]; i++) 
+          {
+            resultMatrix[i] = [];
+            for (let j = 0; j < matrixDimension[1]; j++) 
+            {
+              resultMatrix[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
+            }
+          }
+          break;
+        case '-':
+          // Calculate the result of subtracting two matrices
+          for (let i = 0; i < matrixDimension[0]; i++) 
+          {
+            resultMatrix[i] = [];
+            for (let j = 0; j < matrixDimension[1]; j++) 
+            {
+              resultMatrix[i][j] = firstMatrix[i][j] - secondMatrix[i][j];
+            }
+          }
+          break;
+        default:
+          break;
+      }
+  
+      // // Display first matrix
+      // DisplayMatrix('first', firstMatrix, matrixDimension);
+      // // Display second matrix
+      // DisplayMatrix('second', secondMatrix, matrixDimension);
+  
+      // Display result matrix
+      DisplayMatrix('result', resultMatrix, matrixDimension);
+    }
+    else if (mathematicalOperation === '*') 
+    {
+      const strFirstMatrixDimension = 
+       prompt('Please enter the number of rows and the number of columns ' 
+       + 'of the first matrix separated by space (e.g. 2 2)').trim();
+   
+      const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
+  
+      // Display textboxes for the first matrix
+      DisplayMatrixTextboxes('first', firstMatrixDimension);
+   
+      // alert('Enter the first matrix.');
+       
+      // // Create first matrix
+      // const firstMatrix = [];
+      // CreateMatrix(firstMatrix, firstMatrixDimension[0]);
+  
+      // // Check if first matrix was entered without mistakes
+      // CheckMatrix(firstMatrix, firstMatrixDimension);
+   
+      // // Convert values of first matrix to "number" type
+      // ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
+   
+      const strSecondMatrixDimension = 
+       prompt('Please enter the number of rows and the number of columns ' 
+       + 'of the second matrix separated by space (e.g. 2 2)').trim();
+     
+      const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
+  
+      // Check if it is possible to multiply two matrices
+      if (firstMatrixDimension[1] !== secondMatrixDimension[0]) 
+      {
+        throw 'The number of columns of the first matrix doesn\'t'
+        + ' match the number of rows of the second matrix!';
+      }
+  
+      // Display textboxes for the second matrix
+      DisplayMatrixTextboxes('second', secondMatrixDimension);
+   
+      // alert('Enter the second matrix.');
+   
+      // // Create second matrix
+      // const secondMatrix = [];
+      // CreateMatrix(secondMatrix, secondMatrixDimension[0]);
+  
+      // // Check if second matrix was entered without mistakes
+      // CheckMatrix(secondMatrix, secondMatrixDimension);
+   
+      // // Convert values of second matrix to "number" type
+      // ConvertMatrixToNumber(secondMatrix, secondMatrixDimension);
+   
+      // Calculate the result of multiplying two matrices
+      const resultMatrix = [];
+      for (let i = 0; i < firstMatrixDimension[0]; i++) 
+      {
+        resultMatrix[i] = [];
+        for (let j = 0; j < secondMatrixDimension[1]; j++) 
         {
-          resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+          resultMatrix[i][j] = 0;
+          for (let k = 0; k < firstMatrixDimension[1]; k++) 
+          {
+            resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+          }
         }
       }
-    }
- 
-    // Create an array of result matrix number of rows and 
-    // number of columns in order to display result matrix
-    const resultMatrixDimension = [];
-    resultMatrixDimension.push(firstMatrixDimension[0]);
-    resultMatrixDimension.push(secondMatrixDimension[1]);
    
-    // // Display first matrix
-    // DisplayMatrix('first', firstMatrix, firstMatrixDimension);
-    // // Display second matrix
-    // DisplayMatrix('second', secondMatrix, secondMatrixDimension);
-
-    // Display result matrix
-    DisplayMatrix('result', resultMatrix, resultMatrixDimension); 
+      // Create an array of result matrix number of rows and 
+      // number of columns in order to display result matrix
+      const resultMatrixDimension = [];
+      resultMatrixDimension.push(firstMatrixDimension[0]);
+      resultMatrixDimension.push(secondMatrixDimension[1]);
+     
+      // // Display first matrix
+      // DisplayMatrix('first', firstMatrix, firstMatrixDimension);
+      // // Display second matrix
+      // DisplayMatrix('second', secondMatrix, secondMatrixDimension);
+  
+      // Display result matrix
+      DisplayMatrix('result', resultMatrix, resultMatrixDimension); 
+    }
+    else 
+    {
+      alert('Oops.. that operation doesn\'t exist!');
+    }
   }
-  else 
+  catch (err) 
   {
-    alert('Oops.. that operation doesn\'t exist!');
+    alert('Error! ' + err);
   }
-}
-catch (err) 
-{
-  alert('Error! ' + err);
 }
 
 function ConvertMatrixToNumber(matrix, matrixDimension) 
@@ -304,7 +307,7 @@ function DisplayMatrixDimensionTextboxes(strMatrixPrefix)
   const element = document.getElementById(strElementName);
 
   element.innerHTML = '';
-  element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-rows" type="text">`;
+  element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-rows" oninput="Main();" type="text">`;
   element.innerHTML += '<div>&times;</div>';
-  element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-columns" type="text">`;
+  element.innerHTML += `<input id="${strMatrixPrefix}-matrix-number-of-columns" oninput="Main();" type="text">`;
 }
