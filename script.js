@@ -17,11 +17,7 @@ function Main()
     if (mathematicalOperation === '+' 
      || mathematicalOperation === '-') 
     {
-      const strMatrixDimension = 
-       prompt('Please enter the number of rows and the number of columns ' 
-       + 'separated by space (first rows, then columns, e.g. 2 2)').trim();
-  
-      const matrixDimension = CreateMatrixDimension(strMatrixDimension);
+      const matrixDimension = CreateMatrixDimension('first');
   
       // Display textboxes for the first matrix
       DisplayMatrixTextboxes('first', matrixDimension);
@@ -92,11 +88,7 @@ function Main()
     }
     else if (mathematicalOperation === '*') 
     {
-      const strFirstMatrixDimension = 
-       prompt('Please enter the number of rows and the number of columns ' 
-       + 'of the first matrix separated by space (e.g. 2 2)').trim();
-   
-      const firstMatrixDimension = CreateMatrixDimension(strFirstMatrixDimension);
+      const firstMatrixDimension = CreateMatrixDimension('first');
   
       // Display textboxes for the first matrix
       DisplayMatrixTextboxes('first', firstMatrixDimension);
@@ -113,11 +105,7 @@ function Main()
       // // Convert values of first matrix to "number" type
       // ConvertMatrixToNumber(firstMatrix, firstMatrixDimension);
    
-      const strSecondMatrixDimension = 
-       prompt('Please enter the number of rows and the number of columns ' 
-       + 'of the second matrix separated by space (e.g. 2 2)').trim();
-     
-      const secondMatrixDimension = CreateMatrixDimension(strSecondMatrixDimension);
+      const secondMatrixDimension = CreateMatrixDimension('second');
   
       // Check if it is possible to multiply two matrices
       if (firstMatrixDimension[1] !== secondMatrixDimension[0]) 
@@ -218,17 +206,18 @@ function CreateMatrix(matrix, numberOfRows)
   }
 }
 
-function CreateMatrixDimension(strMatrixDimension) 
+function CreateMatrixDimension(strMatrixPrefix) 
 {
-  // Convert string containing number of rows and
-  // number of columns of the matrix to an array
-  const matrixDimension = strMatrixDimension.split(' ');
+  // Take values from textboxes and add them to an array
+  const matrixDimension = [];
+  matrixDimension.push(document.getElementById(`${strMatrixPrefix}-matrix-number-of-rows`).value); // rows
+  matrixDimension.push(document.getElementById(`${strMatrixPrefix}-matrix-number-of-columns`).value); // columns
 
-  // Check if matrix dimension has enough values
-  if (matrixDimension.length !== 2) 
+  // Check if matrix dimension contains empty strings
+  if (matrixDimension[0] === '' || matrixDimension[1] === '') 
   {
-    throw 'You should have entered two values! '
-     + '(first number of rows, then number of columns)';
+    throw strMatrixPrefix + ' matrix should have two values! '
+     + '(number of rows and number of columns)';
   }
 
   // Convert number of rows and number of columns to "number" type
